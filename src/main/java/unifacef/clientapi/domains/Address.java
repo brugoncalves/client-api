@@ -1,5 +1,10 @@
 package unifacef.clientapi.domains;
 
+import lombok.Builder;
+import lombok.Data;
+
+@Data
+@Builder
 public class Address {
 
     private Long id;
