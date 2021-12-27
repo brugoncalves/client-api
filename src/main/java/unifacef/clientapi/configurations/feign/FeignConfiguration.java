@@ -2,6 +2,7 @@ package unifacef.clientapi.configurations.feign;
 
 import feign.Request;
 import feign.Retryer;
+import feign.Retryer.Default;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
@@ -22,9 +23,10 @@ public class FeignConfiguration {
 
     @Bean
     public Retryer retry(){
-        return new Retryer.Default();
+        return new Default();
     }
 
+    @Bean
     public Request.Options requestOptions(){
         return new Request.Options(feignConnectionTimeout, MILLISECONDS, feignReadTimeout, MILLISECONDS, true);
     }
