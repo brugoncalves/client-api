@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 import static java.util.concurrent.TimeUnit.MILLISECONDS;
 
 @Configuration
-@EnableFeignClients(basePackages = {"unifacef.client-api.gateways.outputs.http"})
+@EnableFeignClients(basePackages = {"unifacef.clientapi.gateways.outputs.http"})
 public class FeignConfiguration {
 
 
