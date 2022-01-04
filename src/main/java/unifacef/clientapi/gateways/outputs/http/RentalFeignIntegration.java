@@ -7,8 +7,8 @@ import unifacef.clientapi.gateways.outputs.http.resources.ClientResource;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
-@FeignClient(name = "location", url = "${integration.location.url}")
-public interface LocationFeignIntegration {
+@FeignClient(name = "rental", url = "${integration.rental.url}")
+public interface RentalFeignIntegration {
 
     @PostMapping(path = "/apí/v1/clients/{id}", produces = APPLICATION_JSON_VALUE)
     void send(@PathVariable("id") final String id,

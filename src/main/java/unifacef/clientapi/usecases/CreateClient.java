@@ -2,14 +2,13 @@ package unifacef.clientapi.usecases;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.aspectj.bridge.Message;
 import org.ff4j.FF4j;
 import org.springframework.stereotype.Component;
 import unifacef.clientapi.configurations.ff4j.Features;
 import unifacef.clientapi.domains.Client;
 import static unifacef.clientapi.exceptions.MessageKey.CLIENT_ALREADY_EXISTS;
 import unifacef.clientapi.gateways.outputs.ClientDataGateway;
-import unifacef.clientapi.gateways.outputs.LocationGateway;
+import unifacef.clientapi.gateways.outputs.RentalGateway;
 import unifacef.clientapi.utils.MessageUtils;
 
 @Slf4j
@@ -19,7 +18,7 @@ public class CreateClient {
 
     private final ClientDataGateway clientDataGateway;
     private final MessageUtils messageUtils;
-    private final LocationGateway locationGateway;
+    private final RentalGateway rentalGateway;
     private final FF4j ff4j;
 
     public Client execute(final Client client){
@@ -31,7 +30,7 @@ public class CreateClient {
 
         Client saved = clientDataGateway.save(client);
         if(ff4j.check(Features.SEND_TO_LOCATION.getKey())) {
-            locationGateway.send(saved);
+            rentalGateway.send(saved);
         }
 
         return saved;

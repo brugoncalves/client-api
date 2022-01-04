@@ -8,7 +8,7 @@ import unifacef.clientapi.configurations.ff4j.Features;
 import unifacef.clientapi.domains.Client;
 import unifacef.clientapi.exceptions.NotFoundException;
 import unifacef.clientapi.gateways.outputs.ClientDataGateway;
-import unifacef.clientapi.gateways.outputs.LocationGateway;
+import unifacef.clientapi.gateways.outputs.RentalGateway;
 import unifacef.clientapi.utils.MessageUtils;
 
 import static unifacef.clientapi.exceptions.MessageKey.CLIENT_NOT_FOUND;
@@ -19,7 +19,7 @@ import static unifacef.clientapi.exceptions.MessageKey.CLIENT_NOT_FOUND;
 public class UpdateClient {
 
     private final ClientDataGateway clientDataGateway;
-    private final LocationGateway locationGateway;
+    private final RentalGateway rentalGateway;
     private final MessageUtils messageUtils;
     private final FF4j ff4j;
 
@@ -31,7 +31,7 @@ public class UpdateClient {
 
         Client saved = clientDataGateway.save(client);
         if (ff4j.check(Features.SEND_TO_LOCATION.getKey())) {
-            locationGateway.send(saved);
+            rentalGateway.send(saved);
         }
 
         return saved;

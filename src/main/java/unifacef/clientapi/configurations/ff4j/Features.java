@@ -8,9 +8,9 @@ import lombok.RequiredArgsConstructor;
 public enum Features {
 
     SEND_TO_LOCATION(
-            "send-to-location",
+            "send-to-rental",
             "features",
-            "Envia o cliente cadastrado para a Location",
+            "Envia o cliente cadastrado para a Rental",
             true);
 
     private final String key;

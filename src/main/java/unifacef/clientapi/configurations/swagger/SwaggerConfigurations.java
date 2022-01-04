@@ -12,7 +12,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @Configuration
 @EnableSwagger2
 public class SwaggerConfigurations {
-    private static final String BASE_PACKAGE = "unifacef.carsapi.gateways.inputs.http";
+    private static final String BASE_PACKAGE = "unifacef.clientapi.gateways.inputs.http";
 
     public Docket apis(){
         return new Docket(DocumentationType.SWAGGER_2)
