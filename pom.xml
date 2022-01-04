@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>unifacef</groupId>
-	<artifactId>client-api</artifactId>
+	<artifactId>costumer-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>client-api</name>
+	<name>costumer-api</name>
 	<description>Api para cadastro de clientes</description>
 
 	<properties>
