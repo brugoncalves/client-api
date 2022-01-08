@@ -36,8 +36,6 @@ public class CostumerDocument {
         this.address = costumer.getAddress();
         this.createdDate = costumer.getCreatedDate();
         this.lastModifieldDate = costumer.getLastModifiedDate();
-
-
     }
 
     public Costumer toDomain() {

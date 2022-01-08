@@ -16,7 +16,7 @@ public class RentalGatewayHttpImpl implements RentalGateway {
 
     @Override
     public void send(final Costumer costumer) {
-        log.info("Sending client to Location. Client id: {}", costumer.getId());
+        log.info("Sending costumer to Rental. Costumer id: {}",costumer.getId());
         CostumerResource costumerResource = new CostumerResource(costumer);
         rentalFeignIntegration.send(costumer.getId(), costumerResource);
     }

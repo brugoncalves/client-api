@@ -24,14 +24,14 @@ public class CreateCostumer {
     private final FF4j ff4j;
 
     public Costumer execute(final Costumer costumer){
-        log.info("Create client. Client id: {}", costumer.getId());
+        log.info("Create costumer. Costumer id: {}",costumer.getId());
         if(costumerDataGateway.findById(costumer.getId()).isPresent()){
             throw new IllegalArgumentException(
                     messageUtils.getMessage(COSTUMER_ALREADY_EXISTS, costumer.getId()));
         }
 
         Costumer saved = costumerDataGateway.save(costumer);
-        if(ff4j.check(Features.SEND_TO_LOCATION.getKey())) {
+        if(ff4j.check(Features.SEND_TO_RENTAL.getKey())) {
             rentalGateway.send(saved);
         }
 

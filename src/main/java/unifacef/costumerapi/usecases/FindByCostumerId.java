@@ -21,7 +21,7 @@ public class FindByCostumerId {
     private final MessageUtils messageUtils;
 
     public Costumer execute(final String id){
-        log.info("Find id. Client code : {}", id);
+        log.info("Find id. Costumer id : {}", id);
         return costumerDataGateway.findById(id).orElseThrow(
                 () -> new NotFoundException(messageUtils.getMessage(COSTUMER_NOT_FOUND, id)));
     }

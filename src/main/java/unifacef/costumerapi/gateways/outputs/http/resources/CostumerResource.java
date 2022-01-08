@@ -15,8 +15,7 @@ public class CostumerResource {
     private String driverLicense;
     private Boolean active;
     private Address address;
-    private LocalDateTime createdDate;
-    private LocalDateTime lastModifiedDate;
+
 
     public CostumerResource(final Costumer costumer) {
        this.name = costumer.getName();
@@ -24,8 +23,6 @@ public class CostumerResource {
        this.driverLicense = costumer.getDriverLicense();
        this.active = costumer.getActive();
        this.address = costumer.getAddress();
-       this.createdDate = costumer.getCreatedDate();
-       this.lastModifiedDate = costumer.getLastModifiedDate();
     }
 
 }

@@ -20,7 +20,7 @@ public class CostumerDataGatewayMongoImpl implements CostumerDataGateway {
     private final CostumerRepository costumerRepository;
 
     @Override
-    public Costumer save(Costumer costumer) {
+    public Costumer save(final Costumer costumer) {
         if(Objects.isNull(costumer.getCreatedDate())){
             costumer.setCreatedDate(LocalDateTime.now());
         }
@@ -28,8 +28,9 @@ public class CostumerDataGatewayMongoImpl implements CostumerDataGateway {
     }
 
     @Override
-    public Optional<Costumer> findById(String id) {
-        return Optional.empty();
+    public Optional<Costumer> findById(final String id) {
+
+        return costumerRepository.findById(id).map(CostumerDocument::toDomain);
     }
 
     @Override

@@ -18,7 +18,7 @@ public class FindCostumers {
     private final CostumerDataGateway costumerDataGateway;
 
     public Page<Costumer> execute(final Pageable pageable) {
-        log.info("Find clients. Page: {}, Size: {}", pageable.getPageNumber(), pageable.getPageSize());
+        log.info("Find costumers. Page: {}, Size: {}", pageable.getPageNumber(), pageable.getPageSize());
         return costumerDataGateway.findByPage(pageable);
     }
 }

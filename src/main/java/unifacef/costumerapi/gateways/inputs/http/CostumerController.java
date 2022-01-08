@@ -24,7 +24,7 @@ import unifacef.costumerapi.usecases.UpdateCostumer;
 public class CostumerController {
 
 
-    private final CreateCostumer createClient;
+    private final CreateCostumer createCostumer;
     private final UpdateCostumer updateCostumer;
     private final FindByCostumerId findByCostumerId;
     private final FindCostumers findCostumers;
@@ -32,13 +32,13 @@ public class CostumerController {
     @GetMapping
     public ListResponse<CostumerResponse> findByPage(@RequestParam(defaultValue = "0") final Integer page,
                                                      @RequestParam(defaultValue = "20") final Integer size){
-        Page<CostumerResponse> clientPage = findCostumers.execute(PageRequest.of(page, size)).map(CostumerResponse::new);
-        return new ListResponse<>(clientPage);
+        Page<CostumerResponse> costumerPage = findCostumers.execute(PageRequest.of(page, size)).map(CostumerResponse::new);
+        return new ListResponse<>(costumerPage);
     }
 
     @PostMapping
     public CostumerResponse create(@RequestBody @Validated final CreateCostumerRequest request) {
-        Costumer costumer = createClient.execute(request.toDomain());
+        Costumer costumer = createCostumer.execute(request.toDomain());
         return new CostumerResponse(costumer);
     }
 

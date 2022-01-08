@@ -7,7 +7,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public enum Features {
 
-    SEND_TO_LOCATION(
+    SEND_TO_RENTAL(
             "send-to-rental",
             "features",
             "Envia o cliente cadastrado para a Rental",

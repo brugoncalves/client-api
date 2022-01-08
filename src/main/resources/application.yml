@@ -2,10 +2,10 @@ server:
   port: 8083
 spring:
   application:
-    name: Client-Api
+    name: Costumer-Api
   data:
     mongodb:
-      uri: mongodb://localhost:27017/client-api
+      uri: mongodb://localhost:27017/costumer-api
 integration:
   rental:
     url: http://localhost:8084

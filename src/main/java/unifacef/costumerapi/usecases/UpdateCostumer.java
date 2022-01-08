@@ -24,13 +24,13 @@ public class UpdateCostumer {
     private final FF4j ff4j;
 
     public Costumer execute(final Costumer costumer) {
-        log.info("Update client. Client id: {}", costumer.getId());
+        log.info("Update costumer. Costumer id: {}", costumer.getId());
         Costumer oldCostumer = costumerDataGateway.findById(costumer.getId()).orElseThrow(() ->
                 new NotFoundException(messageUtils.getMessage(COSTUMER_NOT_FOUND, costumer.getId())));
         costumer.setCreatedDate(oldCostumer.getCreatedDate());
 
         Costumer saved = costumerDataGateway.save(costumer);
-        if (ff4j.check(Features.SEND_TO_LOCATION.getKey())) {
+        if (ff4j.check(Features.SEND_TO_RENTAL.getKey())) {
             rentalGateway.send(saved);
         }
 
