@@ -31,7 +31,7 @@ public class SwaggerConfigurations {
         return new ApiInfoBuilder()
                 .title("Unifacef - Costumer Api")
                 .description("API para cadastro de clientes")
-                .version("1")
+                .version("1.0.0")
                 .build();
     }
 
